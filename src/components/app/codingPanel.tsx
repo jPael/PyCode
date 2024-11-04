@@ -1,10 +1,10 @@
 "use client";
 
 import { python } from "@codemirror/lang-python";
-import CodeMirror from "@uiw/react-codemirror";
 import type { Extension } from "@codemirror/state";
+import CodeMirror from "@uiw/react-codemirror";
 import { useTheme } from "next-themes";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function CodingPanel() {
 	const IDE = useRef(null);
