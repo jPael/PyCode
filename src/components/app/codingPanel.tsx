@@ -22,7 +22,12 @@ export default function CodingPanel() {
 	return (
 		<div className=" col-span-3 border h-full overflow-y-scroll ">
 			<div className="">
-				<CodeMirror ref={IDE} height="400" extensions={[python()]} theme={theme as unknown as Extension} />
+				<CodeMirror
+					ref={IDE}
+					height="400"
+					extensions={[python()]}
+					theme={theme === "system" ? "none" : (theme as unknown as Extension)}
+				/>
 			</div>
 		</div>
 	);
