@@ -14,7 +14,7 @@ export default function Home() {
 			<main className="flex flex-col items-center flex-1   ">
 				<section className="flex flex-col min-h-screen ">
 					<div className={cn("grid place-items-center space-y-7 w-full h-full pt-[15%]", heroFont.className)}>
-						<p className="text-8xl font-extrabold text-primary"> {"{ PyCode }"}</p>
+						<p className="text-8xl font-extrabold text-primary"> {"{ PyScore }"}</p>
 						<p className="text-3xl font-semibold text-primary/80">
 							A LLM-Based Coding LMS of{" "}
 							<span className="underline  underline-offset-8 ">North Eastern Mindanao State University</span>

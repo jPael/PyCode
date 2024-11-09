@@ -48,7 +48,7 @@ function AppSidebar() {
 		<Sidebar>
 			<SidebarHeader>
 				<div className="flex flex-row items-center justify-between">
-					<p className="font-bold tracking-widest">{"{ PyCode }"}</p>
+					<p className="font-bold tracking-widest">{"{ PyScore }"}</p>
 					<ThemeToggle />
 				</div>
 			</SidebarHeader>

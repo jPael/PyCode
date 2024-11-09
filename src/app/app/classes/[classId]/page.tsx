@@ -1,38 +1,25 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { getClassById } from "@/actions/class";
+import ActivityCard from "@/components/app/activityCard";
+import ActivityCardError from "@/components/app/activityCardError";
+import ClassInfoCard from "@/components/app/classInfoCard";
+import ClassInfoCardError from "@/components/app/classInfoCardError";
 
-function Class() {
+async function Class({ params }: Readonly<{ params: Promise<{ classId: string }> }>) {
+	const p = await params;
+	const { classId } = p;
+
+	const classData = await getClassById(classId);
+
 	return (
-		<div className="grid grid-cols-6   ">
-			<div className="col-span-4 p-5">
-				<ActivityCard />
+		<div className="grid grid-cols-6 p-3 gap-3  ">
+			<div className="col-span-4 ">
+				{classData.posts ? <ActivityCard data={classData.posts} /> : <ActivityCardError />}
 			</div>
-			<div className="col-span-2 h-full border">class info</div>
+			<div className="col-span-2 h-full ">
+				{classData?.class ? <ClassInfoCard data={classData.class} /> : <ClassInfoCardError />}
+			</div>
 		</div>
 	);
 }
 
 export default Class;
-
-function ActivityCard() {
-	return (
-		<div className="flex flex-col gap-5 px-6 pt-3 pb-6  border rounded-md ">
-			<div className="flex flex-row justify-between items-center">
-				<Link href={"./class/12312798"}>
-					<Button variant="link" size={"lg"} asChild className="text-2xl">
-						<p>New Activity: Breadth-first search algorithm</p>
-					</Button>
-				</Link>
-				<p className="text-muted-foreground">Oct 30</p>
-			</div>
-			<div className="flex flex-col max-w-[90%]">
-				<p className="text-sm h-auto text-ellipsis line-clamp-2	">
-					Given a connected undirected graph represented by an adjacency list adj, which is a vector of vectors
-					where each adj[i] represents the list of vertices connected to vertex i. Perform a Breadth First
-					Traversal (BFS) starting from vertex 0, visiting vertices from left to right according to the adjacency
-					list, and return a list containing the BFS traversal of the graph.
-				</p>
-			</div>
-		</div>
-	);
-}

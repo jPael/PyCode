@@ -11,7 +11,7 @@ function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
 				<Navbar>
 					<SidebarTrigger />
 				</Navbar>
-				<div className="">{children}</div>
+				<div className="min-h-[90dvh] h-[50dvh] ">{children}</div>
 			</main>
 		</SidebarProvider>
 	);
